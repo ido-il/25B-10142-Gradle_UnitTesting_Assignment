@@ -22,5 +22,6 @@
 
 ## Run tests
 
-1. open a terminal in the project directory.
-2. run `./gradlew test`
+1. clone the repo with `git clone https://github.com/ido-il/25B-10142-Gradle_UnitTesting_Assignment.git`
+2. open a terminal in the project directory.
+3. run `./gradlew test`
