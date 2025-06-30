@@ -73,4 +73,31 @@ public class AppTest {
         assertEquals(List.of(0, 1, 1, 2, 3, 5, 8), App.fibonacciUpTo(10));
         assertThrows(IllegalArgumentException.class, () -> App.fibonacciUpTo(-1));
     }
+
+	@Test
+	public void testAverage() {
+		int[] empty = new int[0];
+		int[] arr1 = {1, 6, 4, 5};
+		int[] arr2 = {7, 2, 4, 11};
+		assertThrows(IllegalArgumentException.class, () -> App.average(empty));
+		assertEquals(4.0, App.average(arr1), 0.0000001);
+		assertEquals(6.0, App.average(arr2), 0.0000001);
+	}
+
+	@Test
+	public void testIsAnagram() {
+		assertTrue(App.isAnagram("start", "trsta"));
+		assertTrue(App.isAnagram("anagram", "gaarman"));
+		assertTrue(!App.isAnagram("abcde", ""));
+		assertTrue(!App.isAnagram("", "absc"));
+	}
+
+	@Test
+	public void testMostCommonWord() {
+		String text1 = "As the sun began to set, the light from the horizon bathed the city in a warm glow. Street lights flickered on, casting gentle light over the sidewalks. In the distance, the lighthouse beamed its light across the ocean, guiding ships safely to shore. She stood by the window, watching the fading light reflect off the glass buildings. Even as darkness crept in, tiny sources of light—from lanterns, windows, and stars—kept the world from falling completely into shadow. The light, though dimmer now, still offered comfort.";
+		String text2 = "big big dog massive dog yes of course";
+
+		assertEquals("light", App.mostCommonWord(text1));
+		assertNotEquals("dog", App.mostCommonWord(text2));
+	}
 }
