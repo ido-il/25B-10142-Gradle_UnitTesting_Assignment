@@ -11,4 +11,66 @@ public class AppTest {
         App classUnderTest = new App();
         assertNotNull(classUnderTest);
     }
+
+    // Tests the App#add function
+    // Ron Kupferman
+    @Test
+    public void testAdd() {
+        assertEquals(175, App.add(8, 167));
+        assertNotEquals(175, App.add(8, -167));
+        assertEquals(0, App.add(16665, -16665));
+        assertNotEquals(1, App.add(0, -1));
+        assertEquals(1, App.add(-1, 2));
+        assertEquals(-1, App.add(0, -1));
+    }
+
+    // Tests the App#isPrime function
+    // Ron Kupferman
+    @Test
+    public void testIsPrime() {
+        assertTrue(App.isPrime(997));
+        assertFalse(App.isPrime(996));
+        assertTrue(App.isPrime(1987));
+        assertFalse(App.isPrime(1998));
+    }
+
+    // Tests the App#reverse function
+    // Ron Kupferman
+    @Test
+    public void testReverse() {
+        assertEquals("cba", App.reverse("abc"));
+        assertNotEquals("abc", App.reverse("abc"));
+        assertEquals("", App.reverse(""));
+        // Test palindrome
+        assertEquals("TACOCAT", App.reverse("TACOCAT"));
+    }
+
+    // Tests the App#factorial function
+    // Ron Golan
+    @Test
+    public void testFactorial() {
+        assertThrows(IllegalArgumentException.class, () -> App.factorial(-1));
+        assertEquals(120, App.factorial(5));
+        assertNotEquals(125, App.factorial(5));
+        assertEquals(1, App.factorial(0));
+        assertEquals(1, App.factorial(1));
+    }
+
+    // Tests the App#isPalindrome function
+    // Ron Golan
+    @Test
+    public void testIsPalindrome() {
+        assertFalse(App.isPalindrome("abc"));
+        assertTrue(App.isPalindrome(""));
+        assertTrue(App.isPalindrome("TACOCAT"));
+        assertFalse(App.isPalindrome("TEST"));
+    }
+
+    // Tests the App#fibonacciUpTo function
+    // Ron Golan
+    @Test
+    public void testFibonacciUpTo() {
+        assertEquals(List.of(0, 1, 1, 2, 3, 5, 8), App.fibonacciUpTo(10));
+        assertThrows(IllegalArgumentException.class, () -> App.fibonacciUpTo(-1));
+    }
 }
